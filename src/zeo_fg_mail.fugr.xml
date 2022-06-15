@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Mail FG</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZEO_FG_MAILTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZEO_FG_MAIL</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZEO_FM_MAIL_ATT_PDF</FUNCNAME>
+     <SHORT_TEXT>Mail PDF Eki</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_SUBJECT</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>CHAR255</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IS_PDF</PARAMETER>
+       <TYP>FPFORMOUTPUT</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_ATTACHMENTS</PARAMETER>
+       <TYP>RMPS_T_POST_CONTENT</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_SUBJECT</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IS_PDF</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Form çıktısı (PDF, PDL)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_ATTACHMENTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Posta girişi içeriklerinin aktarım tablosu</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZEO_FM_MAIL_ATT_XLS</FUNCNAME>
+     <SHORT_TEXT>Mail Excel Eki</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_SUBJECT</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>CHAR50</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IT_ATTACHMENTS_DATA</PARAMETER>
+       <TYP>ANY TABLE</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_ATTACHMENTS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>RMPS_T_POST_CONTENT</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_SUBJECT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Açıklama</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ATTACHMENTS_DATA</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_ATTACHMENTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Posta girişi içeriklerinin aktarım tablosu</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZEO_MAIL_SEND</FUNCNAME>
+     <SHORT_TEXT>Mail Gönderme Fonksiyonu</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>SUBJECT</PARAMETER>
+       <TYP>SO_OBJ_DES</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>MESSAGE_TYPE</PARAMETER>
+       <TYP>CHAR03</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>MESSAGE_BODY</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>W3HTMLTAB</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>ATTACHMENTS</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>RMPS_T_POST_CONTENT</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>SENDER_UID</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>SYUNAME</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>RECIPIENT_UID</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>SYUNAME</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>SENDER_MAIL</PARAMETER>
+       <TYP>AD_SMTPADR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>RECIPIENT_MAIL</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>AD_SMTPADR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>RECIPIENTS</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>UIYT_IUSR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>RECIPIENTS_CC</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>UIYT_IUSR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>RECIPIENT_BCC</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>AD_SMTPADR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>COMMIT</PARAMETER>
+       <DEFAULT>&apos;X&apos;</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR1</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>RESULT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>BOOLEAN</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>SUBJECT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Kısa içerik tanımı</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MESSAGE_TYPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>IDOC&apos;lar için üç karakterlik alan</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MESSAGE_BODY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table for HTML File</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ATTACHMENTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Posta girişi içeriklerinin aktarım tablosu</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SENDER_UID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Kullanıcı adı</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RECIPIENT_UID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Kullanıcı adı</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SENDER_MAIL</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>E-posta adresi</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RECIPIENT_MAIL</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>E-posta adresi</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RECIPIENTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Bilgi kullanıcısı (SEM-BIC)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RECIPIENTS_CC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Bilgi kullanıcısı (SEM-BIC)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RECIPIENT_BCC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>E-posta adresi</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>COMMIT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tek basamaklı gösterge</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RESULT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Bool değişkenleri (X= doğru, -= yanlış, boşluk= bilinmiyor)</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

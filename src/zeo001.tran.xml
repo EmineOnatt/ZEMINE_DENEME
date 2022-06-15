@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_TRAN" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TSTC>
+    <TCODE>ZEO001</TCODE>
+    <PGMNA>ZVKT_RAP_E_013</PGMNA>
+    <DYPNO>1000</DYPNO>
+    <CINFO>gA==</CINFO>
+   </TSTC>
+   <TSTCC>
+    <TCODE>ZEO001</TCODE>
+   </TSTCC>
+   <TSTCT>
+    <SPRSL>T</SPRSL>
+    <TCODE>ZEO001</TCODE>
+    <TTEXT>Başvuru Ekranı</TTEXT>
+   </TSTCT>
+  </asx:values>
+ </asx:abap>
+</abapGit>
